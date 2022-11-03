@@ -6,6 +6,9 @@ services:
     build: .
     ports:
       - "7007:7007"
+    environment:
+      - BS_CLIENT_ID
+      - BS_CLIENT_SECRET
 
   postgres:
     image: "postgres:latest"
