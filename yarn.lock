@@ -1893,6 +1893,24 @@
     luxon "^3.0.0"
     react-use "^17.2.4"
 
+"@backstage/plugin-home@^0.4.26":
+  version "0.4.26"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-home/-/plugin-home-0.4.26.tgz#ab6395bdb670e151f3726112a459caf595a536a7"
+  integrity sha512-pDN3bvex4c1yC6eYxmsdsgolAmN5wkWcrpxNRJXlygvYQR35/E5/lDfEQqtWulm86qBTfu7P0qMWeArqUuLvJg==
+  dependencies:
+    "@backstage/catalog-model" "^1.1.2"
+    "@backstage/config" "^1.0.3"
+    "@backstage/core-components" "^0.11.2"
+    "@backstage/core-plugin-api" "^1.0.7"
+    "@backstage/plugin-catalog-react" "^1.2.0"
+    "@backstage/plugin-stack-overflow" "^0.1.6"
+    "@backstage/theme" "^0.2.16"
+    "@material-ui/core" "^4.12.2"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.57"
+    lodash "^4.17.21"
+    react-use "^17.2.4"
+
 "@backstage/plugin-org@^0.5.8":
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-org/-/plugin-org-0.5.10.tgz#c3809e99ef65c1c885dc47132674f94a66ce85af"
@@ -2202,6 +2220,25 @@
     "@material-ui/core" "^4.12.2"
     "@material-ui/icons" "^4.9.1"
     "@material-ui/lab" "4.0.0-alpha.57"
+    qs "^6.9.4"
+    react-use "^17.2.4"
+
+"@backstage/plugin-stack-overflow@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-stack-overflow/-/plugin-stack-overflow-0.1.6.tgz#7cc79e3b0123a601540a86d0c8b0447c64103bdc"
+  integrity sha512-KTwQFVgdWxsw3Mt0lyOmRAkvjaKrqRI630IVgswgi23gTDewScVs4neth0JRjlKHUbTHAlkVPntOqfSjgi5c3g==
+  dependencies:
+    "@backstage/config" "^1.0.3"
+    "@backstage/core-components" "^0.11.2"
+    "@backstage/core-plugin-api" "^1.0.7"
+    "@backstage/plugin-home" "^0.4.26"
+    "@backstage/plugin-search-common" "^1.1.0"
+    "@backstage/theme" "^0.2.16"
+    "@material-ui/core" "^4.12.2"
+    "@material-ui/icons" "^4.9.1"
+    "@testing-library/jest-dom" "^5.10.1"
+    cross-fetch "^3.1.5"
+    lodash "^4.17.21"
     qs "^6.9.4"
     react-use "^17.2.4"
 

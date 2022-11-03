@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route } from 'react-router';
+import { Route } from 'react-router';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
 import {
   CatalogEntityPage,
@@ -35,6 +35,85 @@ import { PermissionedRoute } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInPage } from '@backstage/core-components';
+import { HomePage } from './components/home/HomePage';
+import { HomepageCompositionRoot } from '@backstage/plugin-home';
+
+import { createTheme, lightTheme, genPageTheme, shapes } from '@backstage/theme';
+import { ThemeProvider, CssBaseline } from '@material-ui/core';
+import LightIcon from '@material-ui/icons/WbSunny';
+
+const myTheme = createTheme({
+  palette: {
+    ...lightTheme.palette,
+    primary: {
+      main: '#cf2e2e',
+    },
+    secondary: {
+      main: '#b6a9b6',
+    },
+    error: {
+      main: '#8c4351',
+    },
+    warning: {
+      main: '#8f5e15',
+    },
+    info: {
+      main: '#34548a',
+    },
+    success: {
+      main: '#485e30',
+    },
+    // background: {
+    //   default: '#d5d6db',
+    //   paper: '#d5d6db',
+    // },
+    banner: {
+      info: '#34548a',
+      error: '#8c4351',
+      text: '#343b58',
+      link: '#565a6e',
+    },
+    linkHover: '#ac1414',
+    errorBackground: '#8c4351',
+    warningBackground: '#8f5e15',
+    infoBackground: '#343b58',
+    navigation: {
+      background: '#ac1414',
+      indicator: '#8f5e15',
+      color: '#d5d6db',
+      selectedColor: '#ffffff',
+      navItem: {
+        hoverBackground: '#B92323'
+      }
+    },
+  },
+  defaultPageTheme: 'home',
+  fontFamily: 'arial',
+  /* below drives the header colors */
+  pageTheme: {
+    home: genPageTheme({ colors: ['#8c4351', '#343b58'], shape: shapes.wave }),
+    documentation: genPageTheme({
+      colors: ['#8c4351', '#343b58'],
+      shape: shapes.wave2,
+    }),
+    tool: genPageTheme({ colors: ['#8c4351', '#343b58'], shape: shapes.round }),
+    service: genPageTheme({
+      colors: ['#8c4351', '#343b58'],
+      shape: shapes.wave,
+    }),
+    website: genPageTheme({
+      colors: ['#8c4351', '#343b58'],
+      shape: shapes.wave,
+    }),
+    library: genPageTheme({
+      colors: ['#8c4351', '#343b58'],
+      shape: shapes.wave,
+    }),
+    other: genPageTheme({ colors: ['#8c4351', '#343b58'], shape: shapes.wave }),
+    app: genPageTheme({ colors: ['#8c4351', '#343b58'], shape: shapes.wave }),
+    apis: genPageTheme({ colors: ['#8c4351', '#343b58'], shape: shapes.wave }),
+  },
+});
 
 const app = createApp({
   apis,
@@ -67,6 +146,17 @@ const app = createApp({
       catalogIndex: catalogPlugin.routes.catalogIndex,
     });
   },
+  themes: [{
+    id: 'my-theme',
+    title: 'My Custom Theme',
+    variant: 'light',
+    icon: <LightIcon />,
+    Provider: ({ children }) => (
+      <ThemeProvider theme={myTheme}>
+        <CssBaseline>{children}</CssBaseline>
+      </ThemeProvider>
+    ),
+  }]
 });
 
 const AppProvider = app.getProvider();
@@ -74,7 +164,9 @@ const AppRouter = app.getRouter();
 
 const routes = (
   <FlatRoutes>
-    <Navigate key="/" to="catalog" />
+    <Route path="/" element={<HomepageCompositionRoot />}>
+      <HomePage />
+    </Route>
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
       path="/catalog/:namespace/:kind/:name"

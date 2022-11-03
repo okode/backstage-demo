@@ -42,6 +42,7 @@ import {
 } from '@backstage/core-components';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import CategoryIcon from '@material-ui/icons/Category';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -77,36 +78,40 @@ const SidebarLogo = () => {
   );
 };
 
-export const Root = ({ children }: PropsWithChildren<{}>) => (
-  <SidebarPage>
-    <Sidebar>
-      <SidebarLogo />
-      <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
-        <SidebarSearchModal />
-      </SidebarGroup>
-      <SidebarDivider />
-      <SidebarGroup label="Menu" icon={<MenuIcon />}>
-        {/* Global nav, not org-specific */}
-        <SidebarItem icon={HomeIcon} to="catalog" text="Home" />
-        <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
-        <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
-        <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
-        {/* End global nav */}
-        <SidebarDivider />
-        <SidebarScrollWrapper>
-          <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
-        </SidebarScrollWrapper>
-      </SidebarGroup>
-      <SidebarSpace />
-      <SidebarDivider />
-      <SidebarGroup
-        label="Settings"
-        icon={<UserSettingsSignInAvatar />}
-        to="/settings"
+export const Root = ({ children }: PropsWithChildren<{}>) =>
+  (
+    <SidebarPage>
+      <Sidebar
       >
-        <SidebarSettings />
-      </SidebarGroup>
-    </Sidebar>
-    {children}
-  </SidebarPage>
-);
+        <SidebarLogo />
+        <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
+          <SidebarSearchModal />
+        </SidebarGroup>
+        <SidebarDivider />
+        <SidebarGroup label="Menu" icon={<MenuIcon />}>
+          {/* Global nav, not org-specific */}
+          <SidebarItem icon={HomeIcon} to="/" text="Home" />
+          <SidebarItem icon={CategoryIcon} to="catalog" text="Catalog" />
+          <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
+          <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
+          <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
+          {/* End global nav */}
+          <SidebarDivider />
+          <SidebarScrollWrapper>
+            <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
+          </SidebarScrollWrapper>
+        </SidebarGroup>
+        <SidebarSpace />
+        <SidebarDivider />
+        <SidebarGroup
+          label="Settings"
+          icon={<UserSettingsSignInAvatar />}
+          to="/settings"
+        >
+          <SidebarSettings />
+        </SidebarGroup>
+      </Sidebar>
+      {children}
+    </SidebarPage>
+  );
+
