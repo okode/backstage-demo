@@ -34,3 +34,31 @@ Open Chrome on http://localhost:7007
 yarn install
 yarn dev
 ```
+
+### UI
+
+#### Home page
+<img src="./assets/backstage_homepage.png" width="1000"/>
+<br>
+<br>
+
+#### Catalog
+<img src="./assets/backstage_catalog.png" width="1000"/>
+
+<br>
+<br>
+
+#### Tech docs
+<img src="./assets/backstage_tech_docs.png" width="1000"/>
+
+<br>
+<br>
+
+#### Custom software templates
+<img src="./assets/backstage_custom_software_templates.png" width="1000"/>
+
+<br>
+<br>
+
+#### Github integration
+<img src="./assets/backstage_github_integration.png" width="1000"/>
