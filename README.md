@@ -37,6 +37,10 @@ yarn dev
 
 ### UI
 
+#### Bitbucket auth
+<img src="./assets/backstage_bitbucket_auth.png" width="1000"/>
+<br>
+
 #### Home page
 <img src="./assets/backstage_homepage.png" width="1000"/>
 <br>
