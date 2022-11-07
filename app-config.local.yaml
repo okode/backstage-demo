@@ -64,7 +64,7 @@ auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
   environment: development
   providers:
-    github:
+    bitbucket:
       development:
         clientId: ${BS_CLIENT_ID}
         clientSecret: ${BS_CLIENT_SECRET}
