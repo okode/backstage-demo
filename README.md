@@ -8,22 +8,22 @@
 
 ## Build and running
 
-* Create a new OAuth App in your GitHub developer settings: https://github.com/settings/developers
+* Create a new OAuth App in your Bitbucket developer settings: https://bitbucket.org/YOUR_PROJECT_NAME/workspace/settings/api
 
 ```
 Name: Backstage
-Homepage URL: http://localhost:7007
-Authorization callback URL: http://localhost:7007/api/auth/github/handler/frame
+Callback URL: http://localhost:7007/api/auth/bitbucket
+Permissions: Account - Read, Workspace membership - Read
 ```
 
-* Copy your GitHub Client ID and Secret, and use as following:
+* Copy your Bitbucket Key and Secret, and use as following:
 
 ```sh
 yarn install --frozen-lockfile
 yarn tsc
 yarn build
 docker compose build
-BS_CLIENT_ID="your GitHub client ID" BS_CLIENT_SECRET="your GitHub secret" docker compose up
+BS_CLIENT_ID="your Bitbucket client ID" BS_CLIENT_SECRET="your Bitbucket secret" docker compose up
 ```
 
 Open Chrome on http://localhost:7007
@@ -36,6 +36,10 @@ yarn dev
 ```
 
 ### UI
+
+#### Bitbucket auth
+<img src="./assets/backstage_bitbucket_auth.png" width="1000"/>
+<br>
 
 #### Home page
 <img src="./assets/backstage_homepage.png" width="1000"/>
